@@ -53,6 +53,32 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+def patch_imputer(obj):
+    """Ensure cross-version scikit-learn compatibility for SimpleImputer across environments."""
+    if obj is None:
+        return
+    if hasattr(obj, 'transformers_'):
+        for item in obj.transformers_:
+            if len(item) >= 2:
+                patch_imputer(item[1])
+    if hasattr(obj, 'steps'):
+        for name, step in obj.steps:
+            patch_imputer(step)
+    if hasattr(obj, 'calibrated_classifiers_'):
+        for cc in obj.calibrated_classifiers_:
+            patch_imputer(getattr(cc, 'estimator', None))
+            patch_imputer(getattr(cc, 'base_estimator', None))
+    if hasattr(obj, 'estimator'):
+        patch_imputer(obj.estimator)
+    if hasattr(obj, 'base_estimator'):
+        patch_imputer(obj.base_estimator)
+    if hasattr(obj, 'statistics_'):
+        if not hasattr(obj, '_fill_dtype'):
+            try:
+                obj._fill_dtype = getattr(obj.statistics_, 'dtype', None)
+            except Exception:
+                pass
+
 @st.cache_resource
 def load_production_artifacts():
     """Load serialized models and dynamic metrics JSON."""
@@ -68,6 +94,9 @@ def load_production_artifacts():
     stream_model = joblib.load(st_path) if os.path.exists(st_path) else None
     classifier = joblib.load(clf_path) if os.path.exists(clf_path) else None
     
+    for model in [xgb_model, rf_model, stream_model, classifier]:
+        patch_imputer(model)
+
     metrics = None
     if os.path.exists(json_path):
         try:
@@ -266,6 +295,8 @@ with tab1:
             }])
 
             try:
+                patch_imputer(active_pipeline)
+                patch_imputer(collateral_clf)
                 # Invert log-transformation: model predicts log1p(price)
                 t_start = time.time()
                 log_pred = float(active_pipeline.predict(input_df)[0])
