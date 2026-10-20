@@ -1,0 +1,21 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Large Datasets
+*.csv
+
+# Jupyter Checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+
+# OS generated files
+.DS_Store
+Thumbs.db

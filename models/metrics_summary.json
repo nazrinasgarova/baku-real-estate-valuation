@@ -1,0 +1,220 @@
+{
+  "xgb_test": {
+    "r2": 0.839,
+    "mae": 33923.9,
+    "medape": 7.46,
+    "ppe10": 60.9,
+    "ppe20": 84.6,
+    "size_mb": 5.6,
+    "latency_ms": 16.26
+  },
+  "rf_test": {
+    "r2": 0.8281,
+    "mae": 35042.88,
+    "medape": 7.46,
+    "ppe10": 60.9,
+    "ppe20": 83.4,
+    "size_mb": 26.5,
+    "latency_ms": 66.11
+  },
+  "streamlined_test": {
+    "r2": 0.8111,
+    "mae": 40055.32,
+    "medape": 9.46,
+    "ppe10": 52.2,
+    "ppe20": 77.7,
+    "size_mb": 5.5,
+    "feature_count": 10
+  },
+  "ridge_test": {
+    "r2": 0.3177,
+    "mae": 60652.16,
+    "medape": 13.9,
+    "ppe10": 38.5,
+    "ppe20": 64.4
+  },
+  "classification": {
+    "optimal_threshold": 0.37,
+    "brier_uncalibrated": 0.0433,
+    "brier_calibrated": 0.0446,
+    "auc": 0.9828,
+    "accuracy": 93.81
+  },
+  "top_features": [
+    {
+      "Feature": "Kateqoriya_Yeni tikili",
+      "Importance": 0.1697022020816803
+    },
+    {
+      "Feature": "Kateqoriya_Həyət evi/Bağ evi",
+      "Importance": 0.15828461945056915
+    },
+    {
+      "Feature": "area",
+      "Importance": 0.10384747385978699
+    },
+    {
+      "Feature": "dist_center_km",
+      "Importance": 0.07927601784467697
+    },
+    {
+      "Feature": "location_binned_Masazır q.",
+      "Importance": 0.07123470306396484
+    },
+    {
+      "Feature": "Kateqoriya_Köhnə tikili",
+      "Importance": 0.05411573871970177
+    },
+    {
+      "Feature": "location_binned_Mərdəkan q.",
+      "Importance": 0.04597827047109604
+    },
+    {
+      "Feature": "area_per_room",
+      "Importance": 0.03808263689279556
+    },
+    {
+      "Feature": "Otaq sayı",
+      "Importance": 0.02954029105603695
+    },
+    {
+      "Feature": "location_binned_Nəriman Nərimanov m.",
+      "Importance": 0.02344830520451069
+    }
+  ],
+  "top_locations": [
+    "Nəriman Nərimanov m.",
+    "İnşaatçılar m.",
+    "Həzi Aslanov m.",
+    "Elmlər Akademiyası m.",
+    "Şah İsmayıl Xətai m.",
+    "Nəsimi r.",
+    "Nərimanov r.",
+    "Memar Əcəmi m.",
+    "28 May m.",
+    "Mərdəkan q.",
+    "Masazır q.",
+    "8 Noyabr m.",
+    "Nizami m.",
+    "Qara Qarayev m.",
+    "Gənclik m."
+  ],
+  "location_coords": {
+    "28 May m.": {
+      "lat": 40.3836,
+      "lng": 49.8471
+    },
+    "8 Noyabr m.": {
+      "lat": 40.398,
+      "lng": 49.8186
+    },
+    "Elmlər Akademiyası m.": {
+      "lat": 40.3784,
+      "lng": 49.812
+    },
+    "Gənclik m.": {
+      "lat": 40.3998,
+      "lng": 49.8558
+    },
+    "Həzi Aslanov m.": {
+      "lat": 40.3721,
+      "lng": 49.9537
+    },
+    "Masazır q.": {
+      "lat": 40.4863,
+      "lng": 49.7551
+    },
+    "Memar Əcəmi m.": {
+      "lat": 40.4136,
+      "lng": 49.8138
+    },
+    "Mərdəkan q.": {
+      "lat": 40.4807,
+      "lng": 50.1471
+    },
+    "Nizami m.": {
+      "lat": 40.3825,
+      "lng": 49.8302
+    },
+    "Nəriman Nərimanov m.": {
+      "lat": 40.4035,
+      "lng": 49.8697
+    },
+    "Nərimanov r.": {
+      "lat": 40.3927,
+      "lng": 49.8547
+    },
+    "Nəsimi r.": {
+      "lat": 40.3944,
+      "lng": 49.8363
+    },
+    "Qara Qarayev m.": {
+      "lat": 40.4175,
+      "lng": 49.9341
+    },
+    "İnşaatçılar m.": {
+      "lat": 40.3919,
+      "lng": 49.8025
+    },
+    "Şah İsmayıl Xətai m.": {
+      "lat": 40.3832,
+      "lng": 49.8721
+    },
+    "Other (City Center)": {
+      "lat": 40.3725,
+      "lng": 49.836
+    }
+  },
+  "distance_bands": [
+    {
+      "dist_band": "0-2 km",
+      "median": 2849.4061804117673,
+      "count": 5630
+    },
+    {
+      "dist_band": "2-5 km",
+      "median": 2511.3636363636365,
+      "count": 24131
+    },
+    {
+      "dist_band": "5-10 km",
+      "median": 2132.3529411764707,
+      "count": 10965
+    },
+    {
+      "dist_band": "10-15 km",
+      "median": 1814.8148148148148,
+      "count": 10060
+    },
+    {
+      "dist_band": "15-25 km",
+      "median": 950.0,
+      "count": 3227
+    },
+    {
+      "dist_band": "25+ km",
+      "median": 1656.4583333333335,
+      "count": 3694
+    }
+  ],
+  "kupca_proof": [
+    {
+      "Category": "Həyət evi/Bağ evi",
+      "Median Price/m² (With Deed)": "1,312 AZN",
+      "Median Price/m² (Without Deed)": "728 AZN",
+      "Observed Difference (%)": "+80.3%"
+    },
+    {
+      "Category": "Köhnə tikili",
+      "Median Price/m² (With Deed)": "2,250 AZN",
+      "Median Price/m² (Without Deed)": "2,235 AZN",
+      "Observed Difference (%)": "+0.7%"
+    },
+    {
+      "Category": "Yeni tikili",
+      "Median Price/m² (With Deed)": "2,364 AZN",
+      "Median Price/m² (Without Deed)": "2,467 AZN",
+      "Observed Difference (%)": "-4.1%"
+    }
+  ]
+}
