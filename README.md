@@ -7,7 +7,7 @@
 [![Streamlit](https://img.shields.io/badge/App-Streamlit%201.51.0-brightgreen.svg)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> 🌐 **Live Web Application:** [Streamlit Community Cloud Deployment](https://share.streamlit.io/) *(replace with your live URL upon deployment)*  
+> 🌐 **Live Web Application:** [baku-real-estate-valuation.streamlit.app](https://baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app)  
 > 🔗 **Repository URL:** `https://github.com/nazrinasgarova/baku-real-estate-valuation`
 
 ---
