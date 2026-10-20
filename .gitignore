@@ -6,6 +6,10 @@ __pycache__/
 # Large Datasets
 *.csv
 
+# Presentation and local assets
+presentation/
+presentation_assets/
+
 # Jupyter Checkpoints
 .ipynb_checkpoints/
 */.ipynb_checkpoints/*
