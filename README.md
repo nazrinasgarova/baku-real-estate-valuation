@@ -7,7 +7,7 @@
 [![Streamlit](https://img.shields.io/badge/App-Streamlit%201.51.0-brightgreen.svg)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> 🌐 **Live Web Application:** [baku-real-estate-valuation.streamlit.app](https://baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app)  
+> 🌐 **Live Web Application:** [baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app](https://baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app)  
 > 🔗 **Repository URL:** `https://github.com/nazrinasgarova/baku-real-estate-valuation`
 
 ---
@@ -27,7 +27,7 @@ This project develops an automated real estate valuation and mortgage underwriti
   * **Streamlined Model:** Top 10 features, Test $R^2 = \mathbf{0.8111}$, $\text{MAE} = \mathbf{40,055.32\text{ AZN}}$, $\text{MedAPE} = \mathbf{9.46\%}$, $\text{PPE10} = \mathbf{52.2\%}$, $\text{PPE20} = \mathbf{77.7\%}$, **5.5 MB**.
   * **Random Forest (Ensemble Benchmark):** Test $R^2 = \mathbf{0.8281}$, Test $\text{MAE} = \mathbf{35,042.88\text{ AZN}}$, $\text{MedAPE} = \mathbf{7.46\%}$, $\text{PPE10} = \mathbf{60.9\%}$, $\text{PPE20} = \mathbf{83.4\%}$, compressed to **26.5 MB** (`compress=3`, safely within GitHub's 100 MB limit).
   * **Ridge Regression (Linear Baseline):** Test $R^2 = 0.3177$, Test $\text{MAE} = 60,652.16\text{ AZN}$, $\text{MedAPE} = 13.90\%$, $\text{PPE10} = 38.5\%$, $\text{PPE20} = 64.4\%$.
-* **Champion Selection Rationale:** Accuracy between Random Forest (MedAPE 7.46%, PPE10 60.9%) and Tuned XGBoost (MedAPE 7.46%, PPE10 60.9%) is practically tied, with XGBoost achieving slightly better $R^2$ (0.8390 vs. 0.8281) and MAE (33,924 vs. 35,043 AZN). XGBoost is selected as the production deployment champion primarily due to its compact 5.6 MB memory footprint (almost 5x smaller than Random Forest's 26.5 MB) and ~8x faster inference latency (~8 ms vs. ~66 ms), enabling rapid container cold starts, reduced RAM utilization, and efficient microservice serving.
+* **Champion Selection Rationale:** Accuracy between Random Forest (MedAPE 7.46%, PPE10 60.9%) and Tuned XGBoost (MedAPE 7.46%, PPE10 60.9%) is practically tied, with XGBoost achieving slightly better $R^2$ (0.8390 vs. 0.8281) and MAE (33,924 vs. 35,043 AZN). XGBoost is selected as the production deployment champion primarily due to its compact 5.6 MB memory footprint (almost 5x smaller than Random Forest's 26.5 MB) and ~4x faster inference latency (~10–20 ms vs. ~66 ms), enabling rapid container cold starts, reduced RAM utilization, and efficient microservice serving.
 * **Collateral Triage & Calibration:** Calibrated probability classification for High-Value Collateral ($\ge 300,000$ AZN) yielding optimal decision threshold $T^* = 0.370$, Validation AUC: **0.9828**, Test Accuracy: **93.81%**.
   * *Honest Calibration Assessment:* Sigmoid calibration did not improve the Brier score (0.0433 uncalibrated vs. 0.0446 calibrated), confirming that raw gradient boosted trees were already well-calibrated. Post-hoc calibration is retained in the production pipeline primarily as an illustrative pipeline component to enforce sigmoid probability scaling.
 
@@ -56,9 +56,9 @@ flowchart TD
 
 | Model Configuration | Role | Test $R^2$ | Test MAE | MedAPE | PPE10 ($\pm 10\%$) | PPE20 ($\pm 20\%$) | Artifact Size | Latency |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Tuned XGBoost** (Depth 9) | **🏆 Deployment Champion** | **0.8390** | **33,923.90 AZN** | **7.46%** | **60.9%** | **84.6%** | **5.6 MB** | **~8 ms** |
+| **Tuned XGBoost** (Depth 9) | **🏆 Deployment Champion** | **0.8390** | **33,923.90 AZN** | **7.46%** | **60.9%** | **84.6%** | **5.6 MB** | **~10–20 ms** |
 | **Random Forest** | **🌲 Ensemble Benchmark** | **0.8281** | **35,042.88 AZN** | **7.46%** | **60.9%** | **83.4%** | **26.5 MB** | ~66 ms |
-| **Streamlined XGBoost** | **📉 Top 10 Features** | **0.8111** | **40,055.32 AZN** | **9.46%** | **52.2%** | **77.7%** | **5.5 MB** | ~8 ms |
+| **Streamlined XGBoost** | **📉 Top 10 Features** | **0.8111** | **40,055.32 AZN** | **9.46%** | **52.2%** | **77.7%** | **5.5 MB** | ~10–20 ms |
 | **Ridge Regression** | **Linear Baseline** | 0.3177 | 60,652.16 AZN | 13.90% | 38.5% | 64.4% | < 1 MB | < 1 ms |
 
 ---
