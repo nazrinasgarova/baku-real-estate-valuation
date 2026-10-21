@@ -7,12 +7,12 @@
 [![Streamlit](https://img.shields.io/badge/App-Streamlit%201.51.0-brightgreen.svg)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> 🌐 **Live Web Application:** [baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app](https://baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app)  
-> 🔗 **Repository URL:** `https://github.com/nazrinasgarova/baku-real-estate-valuation`
+> **Live Application:** [baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app](https://baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app)  
+> **Repository:** `https://github.com/nazrinasgarova/baku-real-estate-valuation`
 
 ---
 
-## 📌 Project Overview & Context
+## Project Overview & Context
 
 This project develops an automated real estate valuation and mortgage underwriting engine for residential properties across Baku and the Absheron Peninsula, Azerbaijan. Built on an empirical dataset of over 100,000 marketplace listings from `bina.az`, the system addresses two foundational banking use cases:
 1. **Automated Valuation Model (AVM):** Estimating fair market property values with narrow error margins to accelerate loan origination workflows.
@@ -33,7 +33,7 @@ This project develops an automated real estate valuation and mortgage underwriti
 
 ---
 
-## 🏗️ Technical Architecture & Pipeline
+## Technical Architecture & Pipeline
 
 ```mermaid
 flowchart TD
@@ -52,18 +52,18 @@ flowchart TD
 
 ---
 
-## 📊 Empirical Benchmarks (Holdout Test Set)
+## Empirical Benchmarks (Holdout Test Set)
 
 | Model Configuration | Role | Test $R^2$ | Test MAE | MedAPE | PPE10 ($\pm 10\%$) | PPE20 ($\pm 20\%$) | Artifact Size | Latency |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Tuned XGBoost** (Depth 9) | **🏆 Deployment Champion** | **0.8390** | **33,923.90 AZN** | **7.46%** | **60.9%** | **84.6%** | **5.6 MB** | **~10–20 ms** |
-| **Random Forest** | **🌲 Ensemble Benchmark** | **0.8281** | **35,042.88 AZN** | **7.46%** | **60.9%** | **83.4%** | **26.5 MB** | ~66 ms |
-| **Streamlined XGBoost** | **📉 Top 10 Features** | **0.8111** | **40,055.32 AZN** | **9.46%** | **52.2%** | **77.7%** | **5.5 MB** | ~10–20 ms |
+| **Tuned XGBoost** (Depth 9) | **Deployment Champion** | **0.8390** | **33,923.90 AZN** | **7.46%** | **60.9%** | **84.6%** | **5.6 MB** | **~10–20 ms** |
+| **Random Forest** | **Ensemble Benchmark** | **0.8281** | **35,042.88 AZN** | **7.46%** | **60.9%** | **83.4%** | **26.5 MB** | ~66 ms |
+| **Streamlined XGBoost** | **Top 10 Features** | **0.8111** | **40,055.32 AZN** | **9.46%** | **52.2%** | **77.7%** | **5.5 MB** | ~10–20 ms |
 | **Ridge Regression** | **Linear Baseline** | 0.3177 | 60,652.16 AZN | 13.90% | 38.5% | 64.4% | < 1 MB | < 1 ms |
 
 ---
 
-## ⚠️ Limitations & Practical Considerations
+## Limitations & Practical Considerations
 
 1. **Asking Prices vs. Finalized Transactions:** Marketplace listings from `bina.az` reflect seller asking prices. An assumed 3% to 7% buyer bargaining discount is an illustrative market assumption commonly referenced in transaction practice, not empirically estimated from this dataset.
 2. **Kupça (Property Deed) Nuances:** Kupça presence carries an empirical +80.3% premium in detached houses and villas (1,312 vs. 728 AZN/m²). For newly constructed luxury apartments, one possible contributing factor in market practice is that premium apartment projects under construction are frequently contracted prior to master deed issuance.
@@ -72,7 +72,7 @@ flowchart TD
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 baku-real-estate-valuation/
@@ -99,7 +99,7 @@ baku-real-estate-valuation/
 
 ---
 
-## 🚀 Quickstart & Setup
+## Quickstart & Setup
 
 ### 1. Clone Repository & Install Dependencies
 ```bash
@@ -132,7 +132,7 @@ jupyter notebook Project_bina_az_real_estate_valuation.ipynb
 
 ---
 
-## 📄 Data Source & Academic Attribution
+## Data Source & Academic Attribution
 
 * **Dataset:** [Binaaz sale project](https://www.kaggle.com/datasets/sehriyarmemmedli/binaaz-sale-project)
 * **Author / Collector:** Shahriyar Mammadli

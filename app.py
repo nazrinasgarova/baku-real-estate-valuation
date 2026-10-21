@@ -132,7 +132,7 @@ DEFAULT_LOCATION_COORDS = {
 LOCATION_COORDS = metrics_summary.get("location_coords", DEFAULT_LOCATION_COORDS) if metrics_summary else DEFAULT_LOCATION_COORDS
 
 # Header
-st.markdown('<div class="main-header">🏢 Bakı Daşınmaz Əmlak Qiymətləndirmə (AVM) & İpoteka Riski Platforması</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header">Bakı Daşınmaz Əmlak Qiymətləndirmə (AVM) & İpoteka Riski Platforması</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-header">Bina.az bazar məlumatları (Kaggle: Shahriyar Mammadli) və Scikit-Learn / XGBoost Machine Learning Pipeline əsasında avtomatlaşdırılmış qiymətləndirmə mühərriki.</div>', unsafe_allow_html=True)
 
 # Tabs
@@ -144,7 +144,7 @@ tab1, tab2, tab3 = st.tabs([
 
 # ================= TAB 1: VALUATION & MORTGAGE ENGINE =================
 with tab1:
-    st.subheader("🏡 Əmlak Parametrlərini Daxil Edin")
+    st.subheader("Əmlak Parametrlərini Daxil Edin")
     
     col1, col2, col3 = st.columns(3)
     
@@ -209,9 +209,9 @@ with tab1:
         active_engine = st.selectbox(
             "Seçilmiş ML Mühərriki",
             [
-                "⚡ Tuned XGBoost (Overall Champion, 5.6 MB)",
-                "🌲 Random Forest (Ensemble Benchmark, 26.5 MB)",
-                "📉 Streamlined XGBoost (Top 10 Features, 5.5 MB)"
+                "Tuned XGBoost (Deployment Champion, 5.6 MB)",
+                "Random Forest (Ensemble Benchmark, 26.5 MB)",
+                "Streamlined XGBoost (Top 10 Features, 5.5 MB)"
             ],
             index=0
         )
@@ -223,14 +223,14 @@ with tab1:
             step=0.5
         )
 
-    with st.expander("➕ Əlavə Xüsusiyyətlər & Üstünlüklər (Metro, Dəniz Mənzərəsi, Qaz və Lift)"):
+    with st.expander("Əlavə Xüsusiyyətlər (Metro, Dəniz Mənzərəsi, Qaz və Lift)"):
         a_col1, a_col2, a_col3 = st.columns(3)
         with a_col1:
-            has_metro_ui = st.checkbox("🚇 Metroya yaxın ərazi", value=True)
+            has_metro_ui = st.checkbox("Metroya yaxın ərazi", value=True)
         with a_col2:
-            has_sea_ui = st.checkbox("🌊 Dəniz mənzərəsi / Panorama", value=False)
+            has_sea_ui = st.checkbox("Dəniz mənzərəsi / Panorama", value=False)
         with a_col3:
-            has_utilities_ui = st.checkbox("🔥 Qaz və Lift mövcuddur", value=True)
+            has_utilities_ui = st.checkbox("Qaz və Lift mövcuddur", value=True)
 
     st.markdown("---")
     predict_btn = st.button("🚀 Əmlakın Bazar Qiymətini və Girov Riskini Hesabla", type="primary", use_container_width=True)
@@ -315,19 +315,19 @@ with tab1:
                 res_col1, res_col2, res_col3 = st.columns(3)
                 with res_col1:
                     st.metric(
-                        label="💰 Təxmini Ədalətli Bazar Dəyəri",
+                        label="Təxmini Ədalətli Bazar Dəyəri",
                         value=f"{pred_price:,.0f} AZN",
                         delta=f"1 m² = {price_per_m2:,.0f} AZN/m²"
                     )
                 with res_col2:
                     st.metric(
-                        label="🎯 Qiymətləndirmə Diapazonu (PPE10: ±10%)",
+                        label="Qiymətləndirmə Diapazonu (PPE10: ±10%)",
                         value=f"{lower_bound:,.0f} - {upper_bound:,.0f} AZN",
                         delta=f"Inference: {inference_ms:.2f} ms"
                     )
                 with res_col3:
                     st.metric(
-                        label="📍 Mərkəzə Məsafə (Fəvvarələr Meydanı)",
+                        label="Mərkəzə Məsafə (Fəvvarələr Meydanı)",
                         value=f"{dist_km:.1f} km",
                         delta="40.3725° N, 49.8360° E"
                     )
@@ -336,7 +336,7 @@ with tab1:
                 st.caption("ℹ️ *Qeyd: Xəritə koordinatları verilənlər bazasındakı real elanların median GPS koordinatlarıdır; fərdi qiymətləndirmədə əmlakın dəqiq GPS koordinatları əsas götürülür.*")
 
                 # Calibrated Collateral Triage Evaluation
-                st.markdown("### 🏦 İpoteka & Girov Qiymətləndirmə Simulyasiyası")
+                st.markdown("### İpoteka & Girov Qiymətləndirmə Simulyasiyası")
                 b_col1, b_col2 = st.columns(2)
                 
                 with b_col1:
@@ -387,7 +387,7 @@ with tab2:
 
     i_col1, i_col2 = st.columns(2)
     with i_col1:
-        st.markdown("#### ⚖️ Çıxarış (Kupça) Qanuni Təminatının Empirik Fərqi:")
+        st.markdown("#### Çıxarış (Kupça) Təminatının Empirik Fərqi:")
         if metrics_summary and 'kupca_proof' in metrics_summary:
             st.dataframe(pd.DataFrame(metrics_summary['kupca_proof']), use_container_width=True)
         else:
@@ -399,7 +399,7 @@ with tab2:
         st.caption("ℹ️ *Həyət evlərində Kupça sənədi m² üzrə +80.3% empirik qiymət üstünlüyü təmin edir. Mənzillərdə isə fərq cüzidir; yeni binaların çoxu ilkin mərhələdə MTK müqaviləsi ilə satılır.*")
 
     with i_col2:
-        st.markdown("#### 📍 Mərkəzdən Məsafə üzrə Mərhələli Qiymət Enişi:")
+        st.markdown("#### Mərkəzdən Məsafə üzrə Mərhələli Qiymət Enişi:")
         if metrics_summary and 'distance_bands' in metrics_summary:
             dist_df = pd.DataFrame(metrics_summary['distance_bands']).rename(columns={
                 'dist_band': 'Məsafə Zolağı',
@@ -437,7 +437,7 @@ with tab3:
         results_df = pd.DataFrame([
             {
                 "Model": "Tuned XGBoost",
-                "Rol": "🏆 Overall Champion",
+                "Rol": "Deployment Champion",
                 "Test R²": f"{xgb_m['r2']:.4f}",
                 "Test MAE": f"{xgb_m['mae']:,.2f} AZN",
                 "MedAPE": f"{xgb_m['medape']:.2f}%",
@@ -448,7 +448,7 @@ with tab3:
             },
             {
                 "Model": "Random Forest",
-                "Rol": "🌲 Ensemble Benchmark",
+                "Rol": "Ensemble Benchmark",
                 "Test R²": f"{rf_m['r2']:.4f}",
                 "Test MAE": f"{rf_m['mae']:,.2f} AZN",
                 "MedAPE": f"{rf_m['medape']:.2f}%",
@@ -459,7 +459,7 @@ with tab3:
             },
             {
                 "Model": "Streamlined XGBoost",
-                "Rol": "📉 Top 10 Features",
+                "Rol": "Top 10 Features",
                 "Test R²": f"{st_m['r2']:.4f}",
                 "Test MAE": f"{st_m['mae']:,.2f} AZN",
                 "MedAPE": f"{st_m['medape']:.2f}%",
@@ -482,9 +482,9 @@ with tab3:
         ])
     else:
         results_df = pd.DataFrame([
-            {"Model": "Tuned XGBoost", "Rol": "🏆 Deployment Champion", "Test R²": "0.8390", "Test MAE": "33,924 AZN", "MedAPE": "7.46%", "PPE10 (±10%)": "60.9%", "PPE20 (±20%)": "84.6%", "Model Ölçüsü": "5.6 MB", "Status": "Production Engine"},
-            {"Model": "Random Forest", "Rol": "🌲 Ensemble Benchmark", "Test R²": "0.8281", "Test MAE": "35,043 AZN", "MedAPE": "7.46%", "PPE10 (±10%)": "60.9%", "PPE20 (±20%)": "83.4%", "Model Ölçüsü": "26.5 MB", "Status": "Ensemble Reference"},
-            {"Model": "Streamlined XGBoost", "Rol": "📉 Top 10 Features", "Test R²": "0.8111", "Test MAE": "40,055 AZN", "MedAPE": "9.46%", "PPE10 (±10%)": "52.2%", "PPE20 (±20%)": "77.7%", "Model Ölçüsü": "5.5 MB", "Status": "10 Transformed Features"},
+            {"Model": "Tuned XGBoost", "Rol": "Deployment Champion", "Test R²": "0.8390", "Test MAE": "33,924 AZN", "MedAPE": "7.46%", "PPE10 (±10%)": "60.9%", "PPE20 (±20%)": "84.6%", "Model Ölçüsü": "5.6 MB", "Status": "Production Engine"},
+            {"Model": "Random Forest", "Rol": "Ensemble Benchmark", "Test R²": "0.8281", "Test MAE": "35,043 AZN", "MedAPE": "7.46%", "PPE10 (±10%)": "60.9%", "PPE20 (±20%)": "83.4%", "Model Ölçüsü": "26.5 MB", "Status": "Ensemble Reference"},
+            {"Model": "Streamlined XGBoost", "Rol": "Top 10 Features", "Test R²": "0.8111", "Test MAE": "40,055 AZN", "MedAPE": "9.46%", "PPE10 (±10%)": "52.2%", "PPE20 (±20%)": "77.7%", "Model Ölçüsü": "5.5 MB", "Status": "10 Transformed Features"},
             {"Model": "Ridge Regression", "Rol": "Baza Xətti Model", "Test R²": "0.3177", "Test MAE": "60,652 AZN", "MedAPE": "13.90%", "PPE10 (±10%)": "38.5%", "PPE20 (±20%)": "64.4%", "Model Ölçüsü": "< 1 MB", "Status": "Linear Baseline"}
         ])
 
@@ -495,13 +495,13 @@ with tab3:
     xgb_ppe20 = f"{xgb_m['ppe20']:.1f}%" if (metrics_summary and 'xgb_test' in metrics_summary) else "84.6%"
 
     st.markdown("---")
-    st.subheader("🎯 Niyə Qlobal Bank Standartı MedAPE?")
+    st.subheader("Niyə Qlobal Bank Standartı MedAPE?")
     st.markdown(f"""
     * **MedAPE (Median Absolute Percentage Error):** Beynəlxalq AVM standartıdır. Tuned XGBoost ({xgb_medape}) qlobal 10% sənaye standartını üstələyir.
     * **PPE10 və PPE20:** Əmlakların ~{xgb_ppe10}-u faktiki bazar qiymətinin $\\pm 10\\%$-i daxilində (PPE10), ~{xgb_ppe20}-i isə $\\pm 20\\%$-i daxilində (PPE20) yüksək dəqiqliklə proqnozlaşdırılır.
     """)
 
-    st.subheader("🌟 Ən Vacib Xüsusiyyətlər (Top Value Drivers)")
+    st.subheader("Ən Vacib Xüsusiyyətlər (Top Value Drivers)")
     if metrics_summary and 'top_features' in metrics_summary:
         top_f_df = pd.DataFrame(metrics_summary['top_features'])
         st.bar_chart(top_f_df.set_index("Feature"), use_container_width=True)
