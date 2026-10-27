@@ -1,6 +1,6 @@
-# Baku Real Estate Valuation & Mortgage Collateral Risk
+# Baku Residential Real Estate Valuation: ML-Based AVM and High-Value Collateral Screening
 
-Automated Valuation Model (AVM) and high-value collateral classifier for residential property in Baku and the Absheron Peninsula, trained on 57,707 cleaned `bina.az` listings.
+Automated Valuation Model (AVM) and banking use case simulation for residential properties in Baku and the Absheron Peninsula, trained on 57,707 cleaned `bina.az` listings.
 
 [![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.13-blue.svg)](https://www.python.org/)
 [![Scikit-Learn](https://img.shields.io/badge/Library-Scikit--Learn%201.7.2-orange.svg)](https://scikit-learn.org/)
@@ -18,10 +18,10 @@ Automated Valuation Model (AVM) and high-value collateral classifier for residen
 
 ## Overview
 
-A bank needs a fast, consistent estimate of what a property is worth and a flag for high-value collateral. This project covers both:
+A bank needs a fast, consistent estimate of what a property is worth and a screening mechanism for high-value collateral. This banking use case simulation covers both:
 
 1. **Valuation (regression):** predict the listing price of a residential property.
-2. **Collateral triage (classification):** flag properties priced at 300,000 AZN or more.
+2. **High-value collateral screening (classification):** flag properties priced at 300,000 AZN or more.
 
 The primary metric is **MedAPE** (median absolute percentage error), the standard AVM metric. **PPE10 / PPE20** show the share of predictions within 10% / 20% of the actual price.
 
@@ -107,9 +107,9 @@ flowchart LR
   <img src="assets/accuracy_by_price_tier.png" width="700" alt="MedAPE and PPE10 by price tier">
 </p>
 
-## Collateral Classifier
+## High-Value Collateral Screening
 
-Flags properties worth 300,000 AZN or more. The threshold (0.37) was chosen on the validation set by maximizing F1, then applied once to the test set: precision 0.87, recall 0.90, F1 0.88.
+Flags properties worth 300,000 AZN or more for secondary underwriting review and risk triage. The threshold (0.37) was chosen on the validation set by maximizing F1, then applied once to the test set: precision 0.87, recall 0.90, F1 0.88.
 
 Sigmoid calibration did not improve the Brier score (0.0433 before, 0.0446 after), so the base model was already well calibrated. The calibrated version is kept in the saved pipeline.
 
