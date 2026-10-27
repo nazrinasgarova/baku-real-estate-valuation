@@ -6,9 +6,11 @@ Automated Valuation Model (AVM) and banking use case simulation for residential 
 [![Scikit-Learn](https://img.shields.io/badge/Library-Scikit--Learn%201.7.2-orange.svg)](https://scikit-learn.org/)
 [![XGBoost](https://img.shields.io/badge/Model-XGBoost%203.3.0-red.svg)](https://xgboost.readthedocs.io/)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app)
+[![Presentation](https://img.shields.io/badge/Presentation-PDF%20Slides-blueviolet.svg)](presentation/Baku_Real_Estate_Valuation_Presentation.pdf)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**Live application:** [baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app](https://baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app)
+**Live application:** [baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app](https://baku-real-estate-valuation-gtdwutcxd4luruxzxjkkhg.streamlit.app)  
+**Slide deck:** [Project Presentation (PDF)](presentation/Baku_Real_Estate_Valuation_Presentation.pdf)
 
 <p align="center">
   <img src="assets/price_map.png" width="720" alt="Map of listings colored by price per m2">
@@ -147,6 +149,8 @@ jupyter notebook Project_bina_az_real_estate_valuation.ipynb
 ├── Project_bina_az_real_estate_valuation.ipynb   # analysis and modeling
 ├── app.py                                        # Streamlit app
 ├── assets/                                       # figures used in this README
+├── presentation/                                 # project slide deck (PDF)
+│   └── Baku_Real_Estate_Valuation_Presentation.pdf
 ├── src/
 │   ├── features.py                               # distance, amenity features
 │   └── preprocessing.py                          # area and floor parsing

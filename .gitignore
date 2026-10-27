@@ -7,7 +7,7 @@ __pycache__/
 *.csv
 
 # Presentation and local assets
-presentation/
+presentation/*.pptx
 presentation_assets/
 
 # Jupyter Checkpoints
